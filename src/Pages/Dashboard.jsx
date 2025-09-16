@@ -302,7 +302,7 @@ export default function Dashboard() {
       {/* Logout */}
       <button
         onClick={handleLogout}
-        className="bg-red-500 cursor-pointer hover:bg-red-600 font-bold text-white py-2 rounded-xl text-xs md:text-sm mt-2"
+        className="hidden md:block bg-red-500 cursor-pointer hover:bg-red-600 font-bold text-white py-2 rounded-xl text-xs md:text-sm mt-2"
       >
         Logout
       </button>
