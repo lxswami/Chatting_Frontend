@@ -444,7 +444,7 @@ export default function ChatPage() {
   const isPartnerOnline = onlineUsers.includes(partnerId);
 
   return (
-    <div className="flex flex-col h-screen bg-gray-100">
+    <div className="flex flex-col max-h-screen sm:h-screen bg-gray-100">
       <div className="sticky top-0 z-20 shadow bg-white">
         <ChatHeader
           partnerName={isGroupChat ? roomInfo.name : partnerName}
