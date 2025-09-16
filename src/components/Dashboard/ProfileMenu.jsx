@@ -9,7 +9,8 @@ export default function ProfileMenu({
   setCurrentUser,
   showProfileInfo,
   setShowProfileInfo,
-  profileMenuRef
+  profileMenuRef,
+  handleLogout
 }) {
   const [showEditForm, setShowEditForm] = useState(false);
   const [editedData, setEditedData] = useState({
@@ -118,6 +119,9 @@ export default function ProfileMenu({
         <p className="text-xs text-gray-600 mb-2">Email : {currentUser?.email || "No email"}</p>
         <p className="text-xs text-gray-600 mb-2">ID : {currentUser?._id || "N/A"}</p>
         <p className="text-xs text-gray-600 mb-2">Role : {currentUser?.role || "N/A"}</p>
+        <button onClick={handleLogout} className="text-red-600 hover:text-red-800 text-sm font-medium">
+          Logout
+        </button>
         <div className="border-t mt-2 pt-2 flex justify-end space-x-2">
           <button onClick={() => setShowProfileInfo(false)} className="text-gray-600 hover:text-gray-800">
             <FiX className="w-4 h-4 cursor-pointer" />

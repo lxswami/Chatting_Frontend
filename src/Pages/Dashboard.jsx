@@ -234,7 +234,7 @@ export default function Dashboard() {
 
       {/* Top section */}
       <div className="flex flex-col space-y-2">
-        <ProfileMenu {...{ currentUser, setCurrentUser, showProfileInfo, setShowProfileInfo, profileMenuRef }} />
+        <ProfileMenu {...{ currentUser, setCurrentUser, showProfileInfo, setShowProfileInfo, profileMenuRef, handleLogout }} />
 
         <div className="flex justify-between items-center">
           <button
