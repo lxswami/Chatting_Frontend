@@ -119,7 +119,7 @@ export default function ProfileMenu({
         <p className="text-xs text-gray-600 mb-2">Email : {currentUser?.email || "No email"}</p>
         <p className="text-xs text-gray-600 mb-2">ID : {currentUser?._id || "N/A"}</p>
         <p className="text-xs text-gray-600 mb-2">Role : {currentUser?.role || "N/A"}</p>
-        <button onClick={handleLogout} className="text-red-600 hover:text-red-800 bg-red-100 py-2 px-4 rounded-2xl text-sm font-medium cursor-pointer">
+        <button onClick={handleLogout} className="text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 py-1 px-3 rounded-xl text-sm font-medium cursor-pointer">
           Logout
         </button>
         <div className="border-t mt-2 pt-2 flex justify-end space-x-2">
