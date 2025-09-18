@@ -22,7 +22,7 @@ export default function ChatHeader({
   const groupCreatorId = participants[0]?._id; // assuming first user is creator
 
   return (
-    <header className="relative flexw-full items-center justify-between px-4 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md rounded-b-lg">
+    <header className="relative flex w-full items-center justify-between px-4 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md rounded-b-lg">
       <button
         onClick={() => navigate("/dashboard")}
         className="md:hidden text-2xl hover:text-gray-200 text-white-500"
