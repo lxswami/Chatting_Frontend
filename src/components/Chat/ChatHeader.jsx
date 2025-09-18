@@ -31,7 +31,7 @@ export default function ChatHeader({
       </button>
 
       {/* Partner or Group name */}
-      <div className="flex-1 text-center md:text-left truncate">
+      <div className="flex text-center md:text-left truncate flex-col md:flex-row md:items-center md:justify-start">
         <div className="flex items-center justify-center md:justify-start space-x-2">
           <span className="text-base font-semibold truncate">{partnerName}</span>
 

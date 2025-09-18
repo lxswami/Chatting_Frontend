@@ -22,7 +22,7 @@ export default function ChatMessages({
   };
 
   return (
-    <main className="flex overflow-y-auto px-6 pt-10 pb-2 space-y-3">
+    <main className="flex-1 overflow-y-auto px-6 pt-10 pb-2 space-y-3">
       {messages.map((msg, idx) => {
         const isMe = msg.senderId === currentUser._id;
         const showSenderName = isGroupChat && !isMe;
