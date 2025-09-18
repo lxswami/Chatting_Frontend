@@ -133,7 +133,7 @@ export default function Signup() {
                                     type="file"
                                     accept="image/*"
                                     onChange={handleImageChange}
-                                    className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none transition"
+                                    className="w-full border border-gray-300 cursor-pointer rounded-lg px-3 py-2 bg-white focus:outline-none transition"
                                 />
                                 {preview && (
                                     <img
