@@ -445,7 +445,7 @@ export default function ChatPage() {
 
   return (
     <div className="flex flex-col h-screen bg-gray-100">
-      <div className="fixed top-0 left-0 w-full z-30 shadow bg-white">
+      <div className="fixed top-0 w-full z-30 shadow bg-white">
         <ChatHeader
           partnerName={isGroupChat ? roomInfo.name : partnerName}
           isOnline={!isGroupChat && isPartnerOnline}
@@ -601,7 +601,7 @@ export default function ChatPage() {
         </div>
 
         {/* INPUT FIXED AT BOTTOM */}
-        <div className="fixed bottom-0 left-0 w-full bg-white shadow-inner px-2 md:px-4 py-2">
+        <div className="fixed bottom-0 w-full bg-white shadow-inner px-2 md:px-4 py-2">
           <ChatInput
             newMsg={newMsg}
             setNewMsg={setNewMsg}
