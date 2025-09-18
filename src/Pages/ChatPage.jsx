@@ -444,7 +444,7 @@ export default function ChatPage() {
   const isPartnerOnline = onlineUsers.includes(partnerId);
 
   return (
-    <div className="flex flex-col max-h-screen sm:h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-gray-100">
       <div className="sticky top-0 z-20 shadow bg-white">
         <ChatHeader
           partnerName={isGroupChat ? roomInfo.name : partnerName}
@@ -454,22 +454,39 @@ export default function ChatPage() {
           onVideoCall={() => startVideoCall?.()}
           participants={roomInfo.users} // 👈 this is passed already
         />
-
       </div>
 
       {incomingCall && (
-        <div className="fixed inset-0 flex flex-col justify-between items-center z-50" style={{ background: "linear-gradient(to top right, #4baea0, #5ea64d)" }}>
+        <div
+          className="fixed inset-0 flex flex-col justify-between items-center z-50"
+          style={{ background: "linear-gradient(to top right, #4baea0, #5ea64d)" }}
+        >
           <div className="flex-1 flex flex-col justify-center items-center mt-12">
-            <div className="text-white text-lg font-semibold mb-4">{partnerName || "Friend"}</div>
+            <div className="text-white text-lg font-semibold mb-4">
+              {partnerName || "Friend"}
+            </div>
             <img
-              src={partnerImage || "https://plus.unsplash.com/premium_photo-1664124888904-435121e89c74?q=80&w=687"}
+              src={
+                partnerImage ||
+                "https://plus.unsplash.com/premium_photo-1664124888904-435121e89c74?q=80&w=687"
+              }
               alt="Avatar"
               className="rounded-full w-24 h-24 border-4 border-white shadow"
             />
           </div>
           <div className="flex justify-center items-center mb-12 space-x-40">
-            <button onClick={acceptIncomingCall} className="bg-green-500 hover:bg-green-600 rounded-full p-4"><FaPhoneAlt /></button>
-            <button onClick={rejectIncomingCall} className="bg-red-600 hover:bg-red-700 rounded-full p-4"><FaPhone /></button>
+            <button
+              onClick={acceptIncomingCall}
+              className="bg-green-500 hover:bg-green-600 rounded-full p-4"
+            >
+              <FaPhoneAlt />
+            </button>
+            <button
+              onClick={rejectIncomingCall}
+              className="bg-red-600 hover:bg-red-700 rounded-full p-4"
+            >
+              <FaPhone />
+            </button>
           </div>
         </div>
       )}
@@ -480,10 +497,23 @@ export default function ChatPage() {
             {isVoiceCall ? (
               <div className="flex flex-col justify-between items-center h-full bg-[#075E54]">
                 <div className="flex-1 flex flex-col justify-center items-center">
-                  <img src={partnerImage || "https://plus.unsplash.com/premium_photo-1666901328734-3c6eb9b6b979?q=80&w=880"} alt="Avatar" className="rounded-full w-24 h-24 border-4 border-white shadow" />
-                  <div className="mt-4 text-white text-xl font-semibold">{partnerName || "Unknown"}</div>
+                  <img
+                    src={
+                      partnerImage ||
+                      "https://plus.unsplash.com/premium_photo-1666901328734-3c6eb9b6b979?q=80&w=880"
+                    }
+                    alt="Avatar"
+                    className="rounded-full w-24 h-24 border-4 border-white shadow"
+                  />
+                  <div className="mt-4 text-white text-xl font-semibold">
+                    {partnerName || "Unknown"}
+                  </div>
                   <div className="text-white text-sm mt-1">
-                    {callConnected ? <CallTimer startTime={callStartTime} /> : "Calling…"}
+                    {callConnected ? (
+                      <CallTimer startTime={callStartTime} />
+                    ) : (
+                      "Calling…"
+                    )}
                   </div>
                 </div>
                 <div className="w-full bg-black/30 backdrop-blur-md rounded-t-2xl p-4 flex justify-around items-center">
@@ -492,22 +522,48 @@ export default function ChatPage() {
                     className="text-white hover:text-green-200 p-2"
                     title={isMute ? "Unmute Mic" : "Mute Mic"}
                   >
-                    {isMute ? <FiMicOff className="w-6 h-6" /> : <FiMic className="w-6 h-6" />}
+                    {isMute ? (
+                      <FiMicOff className="w-6 h-6" />
+                    ) : (
+                      <FiMic className="w-6 h-6" />
+                    )}
                   </button>
-                  <button disabled className="text-gray-400"><FiVideoOff className="w-6 h-6" /></button>
-                  <button className="text-white hover:text-green-200"><FiVolume2 className="w-6 h-6" /></button>
-                  <button onClick={endCall} className="bg-red-600 hover:bg-red-700 text-white rounded-full p-4"><FiPhoneOff className="w-6 h-6" /></button>
+                  <button disabled className="text-gray-400">
+                    <FiVideoOff className="w-6 h-6" />
+                  </button>
+                  <button className="text-white hover:text-green-200">
+                    <FiVolume2 className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={endCall}
+                    className="bg-red-600 hover:bg-red-700 text-white rounded-full p-4"
+                  >
+                    <FiPhoneOff className="w-6 h-6" />
+                  </button>
                 </div>
               </div>
             ) : (
               <>
                 {remoteStream ? (
-                  <video ref={remoteVideoRef} autoPlay playsInline className="absolute inset-0 w-full h-full object-cover" />
+                  <video
+                    ref={remoteVideoRef}
+                    autoPlay
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
                 ) : (
-                  <div className="absolute inset-0 bg-black flex items-center justify-center text-white">Waiting for other user to join...</div>
+                  <div className="absolute inset-0 bg-black flex items-center justify-center text-white">
+                    Waiting for other user to join...
+                  </div>
                 )}
                 {localStream && (
-                  <video ref={localVideoRef} autoPlay muted playsInline className="absolute bottom-4 right-4 w-24 h-24 md:w-32 md:h-32 rounded-md shadow border border-white object-cover" />
+                  <video
+                    ref={localVideoRef}
+                    autoPlay
+                    muted
+                    playsInline
+                    className="absolute bottom-4 right-4 w-24 h-24 md:w-32 md:h-32 rounded-md shadow border border-white object-cover"
+                  />
                 )}
               </>
             )}
@@ -515,33 +571,46 @@ export default function ChatPage() {
           <audio ref={remoteAudioRef} autoPlay />
           {!isVoiceCall && (
             <div className="flex justify-center py-4 bg-black/40">
-              <button onClick={endCall} className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full shadow">End Call</button>
+              <button
+                onClick={endCall}
+                className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full shadow"
+              >
+                End Call
+              </button>
             </div>
           )}
         </div>
       )}
 
+      {/* MESSAGES + INPUT WRAPPER */}
+      <div className="flex-1 flex flex-col justify-between">
+        <div className="flex-1 overflow-y-auto px-2 md:px-4 py-2">
+          {loading ? (
+            <div className="flex justify-center items-center h-full">
+              <div className="w-8 h-8 border-4 border-t-transparent border-indigo-500 rounded-full animate-spin"></div>
+            </div>
+          ) : (
+            <ChatMessages
+              messages={messages}
+              currentUser={currentUser}
+              partnerImage={isGroupChat ? null : partnerImage}
+              bottomRef={bottomRef}
+              isGroupChat={isGroupChat}
+            />
+          )}
+        </div>
 
-      <div className="flex-1 overflow-y-auto px-2 md:px-4 py-2">
-        {loading ? (
-          <div className="flex justify-center items-center h-full">
-            <div className="w-8 h-8 border-4 border-t-transparent border-indigo-500 rounded-full animate-spin"></div>
-          </div>
-        ) : (
-          <ChatMessages
-            messages={messages}
-            currentUser={currentUser}
-            partnerImage={isGroupChat ? null : partnerImage}
-            bottomRef={bottomRef}
-            isGroupChat={isGroupChat}
+        {/* INPUT FIXED AT BOTTOM */}
+        <div className="bg-white shadow-inner px-2 md:px-4 py-2">
+          <ChatInput
+            newMsg={newMsg}
+            setNewMsg={setNewMsg}
+            handleSend={handleSend}
           />
-        )}
-      </div>
-
-      <div className="sticky bottom-0 bg-white shadow-inner px-2 md:px-4 py-2 z-10">
-        <ChatInput newMsg={newMsg} setNewMsg={setNewMsg} handleSend={handleSend} />
+        </div>
       </div>
     </div>
+
   );
 }
 
