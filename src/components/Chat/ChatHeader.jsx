@@ -22,7 +22,7 @@ export default function ChatHeader({
   const groupCreatorId = participants[0]?._id; // assuming first user is creator
 
   return (
-    <header className="relative flex w-full items-center justify-between px-4 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md rounded-b-lg">
+    <header className="relative flex items-center justify-between px-4 py-6 bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md rounded-b-lg">
       <button
         onClick={() => navigate("/dashboard")}
         className="md:hidden text-2xl hover:text-gray-200 text-white-500"
@@ -31,7 +31,7 @@ export default function ChatHeader({
       </button>
 
       {/* Partner or Group name */}
-      <div className="flex text-center md:text-left truncate flex-col md:flex-row md:items-center md:justify-start">
+      <div className="flex-1 text-center md:text-left truncate">
         <div className="flex items-center justify-center md:justify-start space-x-2">
           <span className="text-base font-semibold truncate">{partnerName}</span>
 
